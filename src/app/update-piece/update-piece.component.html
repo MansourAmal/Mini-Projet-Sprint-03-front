@@ -1,0 +1,27 @@
+<div class="container">
+    <div>
+        <h2>Modifier une piece :</h2>
+    </div>
+    <form >
+        <div  hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label >ID piece</label>
+            <input type="text" [(ngModel)]="currentpiece.idPiece" name="idPiece" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Nom piece</label>
+            <input type="text"[(ngModel)]= "currentpiece.nomPiece" name="nomPiece" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Auteur</label>
+            <input type="text" [(ngModel)]= "currentpiece.auteurPiece" name="auteurPiece" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label >Date création</label>
+            <input type="date" [ngModel]="currentpiece.dateCreation | date: 'yyyy-MM-dd'" (ngModelChange)=" currentpiece.dateCreation= $event" name="dateCreation" class="form-control">
+        </div>
+        <div class="mt-2">
+            <button type="submit" (click)="updatepiece()" class="btn btn-success">Modifer</button>
+        </div>
+</form>
+</div>
+

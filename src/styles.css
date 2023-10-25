@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+.home-background {
+    background-image: url('C:/Users/MSI/Documents/amal/dsi23/angulare/th2.webp');
+    background-size: cover; /* Ajuste l'image à la taille de l'écran */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    background-attachment: fixed; /* Fixe l'image en arrière-plan */
+    background-position: center top; /* Centre l'image verticalement en haut */
+    height: 100vh; /* Hauteur de la section égale à la hauteur de l'écran */
+    margin: 0; /* Supprime les marges par défaut du body */
+    display: flex;
+    align-items: center; /* Centre le contenu verticalement */
+    .text-content {
+        text-align: center; /* Centre le texte horizontalement */
+        background-color: rgba(252, 250, 250, 0.8); /* Fond blanc semi-transparent pour le texte */
+        padding: 20px; /* Espace autour du texte */
+  }
+}
+  
+  
