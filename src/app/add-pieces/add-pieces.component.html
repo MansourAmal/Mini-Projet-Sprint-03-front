@@ -2,26 +2,34 @@
     <div>
         <h2>Ajouter une pieces Theatrales :</h2>
     </div>
-    <form >
+    <form>
         <div class="col-sm-2 col-md-2 col-lg-2">
-            <label >ID piece</label>
+            <label>ID piece</label>
             <input type="text" [(ngModel)]="newpiece.idPiece" name="idPiece" class="form-control">
         </div>
-        <div class="col-sm-4 col-md-4 col-lg-4" >
-            <label >Nom piece</label>
-            <input type="text"[(ngModel)]= "newpiece.nomPiece" name="nomPiece" class="form-control">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom piece</label>
+            <input type="text" [(ngModel)]="newpiece.nomPiece" name="nomPiece" class="form-control">
         </div>
         <div class="col-sm-2 col-md-2 col-lg-2">
-            <label >auteur</label>
-            <input type="text" [(ngModel)]= "newpiece.auteurPiece" name="auteur" class="form-control">
+            <label>auteur</label>
+            <input type="text" [(ngModel)]="newpiece.auteurPiece" name="auteur" class="form-control">
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
-            <label >Date création</label>
-            <input type="date" [(ngModel)]= "newpiece.dateCreation" name="dateCreation" class="form-control">
+            <label>Date création</label>
+            <input type="date" [(ngModel)]="newpiece.dateCreation" name="dateCreation" class="form-control">
         </div>
-    <div class="mt-2">
-    <button type="submit" (click)="addpiece()"class="btn btn-success">Ajouter</button>
-    </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>genre</label>
+            <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="newIdCat">
+                <option *ngFor="let cat of genre" [value]="cat.idCat">
+                    {{cat.nomCat}}
+                </option>
+            </select>
+        </div>
+        <div class="mt-2">
+            <button type="submit" (click)="addpiece()" class="btn btn-success">Ajouter</button>
+        </div>
     </form>
-    </div>
+</div>
     

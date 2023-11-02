@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'add-pieces', component: AddPiecesComponent },
   { path: 'mon-theatre', component: MonTheatreComponent },
   { path: "", redirectTo: "mon-theatre", pathMatch: "full" },
-  { path: 'updatePiece/:id',component:UpdatePieceComponent}
+  { path: "updatePiece/:id", component: UpdatePieceComponent }
   
 ];
 

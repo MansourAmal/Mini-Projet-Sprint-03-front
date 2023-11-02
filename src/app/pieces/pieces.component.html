@@ -8,6 +8,7 @@
                     <th>Nom</th>
                     <th>Auteur</th>
                     <th>Date de Création</th>
+                    <th>genre</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -16,8 +17,11 @@
                         <td>{{ piece.nomPiece }}</td>
                         <td>{{ piece.auteurPiece }}</td>
                         <td>{{ piece.dateCreation | date:'dd/MM/yyyy' }}</td>
+                        <td>{{ piece.genre.nomCat}}</td>
                         <td><a class="btn btn-danger" (click)="supprimerPiece(piece)">Supprimer</a></td>
                         <td><a class="btn btn-success" [routerLink]="['/updatePiece',piece.idPiece]">Modifier</a></td>
+                      
+
                     </tr>
                 </tbody>
             </table>
