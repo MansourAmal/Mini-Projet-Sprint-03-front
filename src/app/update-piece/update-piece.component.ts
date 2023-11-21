@@ -3,7 +3,7 @@ import { PiecesService } from '../services/pieces.service';
 import { pieces } from '../model/piece-model';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { genre } from '../model/categories-model';
+import { genre } from '../model/genre.model';
 
 @Component({
   selector: 'app-update-piece',

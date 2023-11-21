@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { pieces } from '../model/piece-model'; // J'ai supposé que le nom de votre classe modèle est Piece
-import { genre } from '../model/categories-model';
+import { genre } from '../model/genre.model';
 
 @Injectable({
   providedIn: 'root'

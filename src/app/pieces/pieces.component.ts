@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { pieces } from '../model/piece-model';
 import { PiecesService } from '../services/pieces.service';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-pieces',
   templateUrl: './pieces.component.html',
@@ -8,7 +9,8 @@ import { PiecesService } from '../services/pieces.service';
 })
 export class PiecesComponent implements OnInit{
   piecesTheatrales: pieces[];
-  constructor(private  piecesService : PiecesService) {
+  constructor(private  piecesService : PiecesService,
+              public authService: AuthService) {
     this.piecesTheatrales = piecesService.listePieces();
       
     }

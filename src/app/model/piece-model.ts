@@ -1,4 +1,4 @@
-import { genre } from "./categories-model";
+import { genre } from "./genre.model";
 
 export class pieces {
     idPiece! : number;

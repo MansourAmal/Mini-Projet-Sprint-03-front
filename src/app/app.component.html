@@ -16,19 +16,20 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">pieces theatrales</a>
 
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" routerLink="/add-pieces">ajouter</a></li>
+                  <li><a  *ngIf="authService.isAdmin()" class="dropdown-item" routerLink="/add-pieces">ajouter</a></li>
                   <li><a class="dropdown-item" routerLink="/pieces">lister </a></li>
                 </ul>
               </li>
             </ul>
             <ul class="navbar-nav ml-auto" >
+              <li> <a class="nav-link">{{authService.loggedUser}}</a></li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                   profile
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">login</a></li>
-                  <li><a class="dropdown-item" href="#">logout</a></li>
+                  <li><a a *ngIf="!authService.isloggedIn" class="dropdown-item" routerLink = "login">login</a></li>
+                  <li><a *ngIf="authService.isloggedIn"  class="dropdown-item" (click) = "onLogout()">logout</a></li>
                 </ul>
               </li>
             </ul>

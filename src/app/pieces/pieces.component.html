@@ -18,8 +18,8 @@
                         <td>{{ piece.auteurPiece }}</td>
                         <td>{{ piece.dateCreation | date:'dd/MM/yyyy' }}</td>
                         <td>{{ piece.genre.nomCat}}</td>
-                        <td><a class="btn btn-danger" (click)="supprimerPiece(piece)">Supprimer</a></td>
-                        <td><a class="btn btn-success" [routerLink]="['/updatePiece',piece.idPiece]">Modifier</a></td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerPiece(piece)">Supprimer</a></td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updatePiece',piece.idPiece]">Modifier</a></td>
                       
 
                     </tr>

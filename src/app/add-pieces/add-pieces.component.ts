@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { pieces } from '../model/piece-model';
 import { PiecesService } from '../services/pieces.service';
 import { ActivatedRoute,Router } from '@angular/router';
-import { genre } from '../model/categories-model';
+import { genre } from '../model/genre.model';
 
 @Component({
   selector: 'app-add-pieces',
