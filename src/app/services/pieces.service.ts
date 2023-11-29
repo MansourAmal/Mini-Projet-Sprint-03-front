@@ -1,6 +1,8 @@
+import { SearchFilterPipe } from './../search-filter.pipe';
 import { Injectable } from '@angular/core';
 import { pieces } from '../model/piece-model'; // J'ai supposé que le nom de votre classe modèle est Piece
 import { genre } from '../model/genre.model';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +18,15 @@ export class PiecesService {
       {idCat : 3, nomCat : "tragedie"}
     ];
     this.piecesTheatre = [
-      { idPiece: 1, nomPiece: "Cyrano de Bergerac", auteurPiece: "Edmond Rostand", dateCreation: new Date("1897"),genre:{idCat:1,nomCat:"romantique"} },
-      { idPiece: 2, nomPiece: "Antigone", auteurPiece: "Jean Anouilh", dateCreation: new Date("04/02/1944"),genre:{idCat:2,nomCat:"tragedie"} },
-      { idPiece: 3, nomPiece: "Hamlet", auteurPiece: "William Shakespeare", dateCreation: new Date("2002"),genre:{idCat:2,nomCat:"tragedie"} },
-      { idPiece: 4, nomPiece: "Roméo et Juliette", auteurPiece: "William Shakespeare", dateCreation: new Date("1597"),genre:{idCat:1,nomCat:"romantique"} },
+      { idPiece: 1, nomPiece: "Cyrano de Bergerac", auteurPiece: "Edmond Rostand", dateCreation: new Date("1897"),genre:{idCat:2,nomCat:"romantique"} },
+      { idPiece: 2, nomPiece: "Antigone", auteurPiece: "Jean Anouilh", dateCreation: new Date("04/02/1944"),genre:{idCat:3,nomCat:"tragedie"} },
+      { idPiece: 3, nomPiece: "Hamlet", auteurPiece: "William Shakespeare", dateCreation: new Date("2002"),genre:{idCat:3,nomCat:"tragedie"} },
+      { idPiece: 4, nomPiece: "Roméo et Juliette", auteurPiece: "William Shakespeare", dateCreation: new Date("1597"),genre:{idCat:2,nomCat:"romantique"} },
     ];
   }
 
   listePieces(): pieces[] {
-    return this.piecesTheatre;
+    return this.piecesTheatre ;
   }
 
   ajouterPiece(p: pieces) {
@@ -67,14 +69,37 @@ export class PiecesService {
       this.ajouterPiece(p); // Ajoute la pièce mise à jour
       this.trierPiece(); // Trie la liste des pièces après la mise à jour.
     }
-    listeCategories():genre[] {
-      return this.genres;
+    listegenre():genre[] {
+      return this.genres; // Utilisation de 'of' pour créer un Observable à partir du tableau
     }
-    consulterCategorie(id:number): genre{ 
+    
+    consultergenre(id:number): genre{ 
       return this.genres.find(cat => cat.idCat == id)!;
     }
-      
-    
+    rechercherPargenre(idCat: number): pieces[] {
+      console.log("Selected genre ID (Type):", typeof idCat); 
+      const filterevet = this.piecesTheatre.filter(piec => {
+        console.log("idcat",idCat);
+        console.log("piece", piec.genre.idCat);
+        console.log("Concert with Genre:", piec);
+        return piec.genre.idCat == idCat;
+      });
+      console.log("Filtered Concerts:", filterevet);
+  
+      if (filterevet.length === 0) {
+        console.log("Aucun concert trouvé");
+      }
+  
+      return filterevet;
+    }
+    rechercherParNom(nompiece: String): pieces[] {
+      const filterevet = this.piecesTheatre.filter(piec => {
+        return piec.nomPiece.toLowerCase().includes(nompiece.toLowerCase());
+      });
+      console.log("Filtered Concerts:", filterevet);
+      return filterevet;
+    }
+  
     
   }
     

@@ -20,15 +20,17 @@ export class AddPiecesComponent implements OnInit{
   addpiece(){
     //console.log(this.newpiece);
     this.newgenre=
-    this.piecesService.consulterCategorie(this.newIdCat);
+    this.piecesService.consultergenre(this.newIdCat);
     this.newpiece.genre=this.newgenre;
     this.piecesService.ajouterPiece(this.newpiece);
     this.router.navigate(['pieces']);
 
   }
   ngOnInit(): void {
-    this.genre = this.piecesService.listeCategories(); 
+    this.genre=this.piecesService.listegenre();
+      
   }
+  
 }
 
 

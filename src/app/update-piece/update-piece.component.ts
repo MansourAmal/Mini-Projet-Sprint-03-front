@@ -20,14 +20,14 @@ export class UpdatePieceComponent implements OnInit{
     ) {}
     
     ngOnInit() {
-      this.genre= this.pieceService.listeCategories();
+      this.pieceService.listegenre();
       const id = +this.activatedRoute.snapshot.params['id']; // Convertit l'ID en nombre
       this.currentpiece = this.pieceService.consulterPiece(id);
       this.updatedCatId=this.currentpiece.genre.idCat;
     }
     
     updatePiece() {
-      this.currentpiece.genre=this.pieceService.consulterCategorie(this.updatedCatId);
+      this.currentpiece.genre=this.pieceService.consultergenre(this.updatedCatId);
       this.pieceService.updatepiece(this.currentpiece);
       this.router.navigate(['/pieces']); // Redirige vers la liste des pièces après la mise à jour.
     }

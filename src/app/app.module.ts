@@ -9,6 +9,9 @@ import { MonTheatreComponent } from './mon-theatre/mon-theatre.component';
 import { UpdatePieceComponent } from './update-piece/update-piece.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { RecherchePargenreComponent } from './recherche-pargenre/recherche-pargenre.component';
+import { SearchFilterPipe } from './search-filter.pipe';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 
 
 @NgModule({
@@ -20,6 +23,9 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     UpdatePieceComponent,
     LoginComponent,
     ForbiddenComponent,
+    RecherchePargenreComponent,
+    SearchFilterPipe,
+    RechercheParNomComponent,
 
   ],
   imports: [

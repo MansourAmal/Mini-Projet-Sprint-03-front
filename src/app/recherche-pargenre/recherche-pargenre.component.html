@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4"> 
+        <label>Genre</label> 
+        <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="Idgenre" (change)="onChange()">
+            <option *ngFor="let cat of genres" [value]="cat.idCat">{{ cat.nomCat }}</option>
+        </select> 
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Auteur</th>
+                        <th>Date Création</th>
+                        <th>Genre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let piece of pieces">
+                        <td>{{ piece.idPiece }}</td>
+                        <td>{{ piece.nomPiece }}</td>
+                        <td>{{ piece.auteurPiece }}</td>
+                        <td>{{ piece.dateCreation | date:'dd/MM/yyyy' }}</td>
+                        <td>{{ piece.genre.nomCat }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

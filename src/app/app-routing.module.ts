@@ -1,3 +1,4 @@
+import { RecherchePargenreComponent } from './recherche-pargenre/recherche-pargenre.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PiecesComponent } from './pieces/pieces.component';
@@ -7,6 +8,7 @@ import { UpdatePieceComponent } from './update-piece/update-piece.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { PieceGuard } from './piece.guard';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 
 
 
@@ -18,6 +20,9 @@ const routes: Routes = [
   { path: "updatePiece/:id", component: UpdatePieceComponent },
   {path: 'login', component: LoginComponent},
   {path: 'app-forbidden', component: ForbiddenComponent},
+  {path: "recherche-pargenre", component : RecherchePargenreComponent},
+  {path: "rechercheParNom", component :RechercheParNomComponent},
+
 
 
   
