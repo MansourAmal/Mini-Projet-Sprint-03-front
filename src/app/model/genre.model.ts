@@ -1,4 +1,6 @@
 export class genre {
-    idCat! : number; // ou idCat? : number;
-    nomCat! : string;
+    idG! : number; // ou idCat? : number;
+    nomG! : string;
+    descriptionG!:string
+    
    }

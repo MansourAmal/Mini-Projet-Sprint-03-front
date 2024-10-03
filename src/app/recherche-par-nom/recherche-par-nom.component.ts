@@ -14,15 +14,23 @@ export class RechercheParNomComponent {
   nompiece!:String;
   searchTerm!:string;
   ngOnInit(): void {
-    this.pieces = this.PiecesService.listePieces();
-    this.allpieces=this.pieces;
-    }
-  constructor(private PiecesService : PiecesService){}
-  onChange() {
-    this.pieces = this.PiecesService.rechercherParNom(this.searchTerm);
-    console.log('Filtered pieces:', this.pieces);
+    this.PiecesService.listePieces().subscribe(pth =>{
+      this.pieces = pth;
+      this.allpieces = pth;
+    });
+   
   }
-  onKeyUp(filterText : string){ this.pieces = this.pieces.filter(item => item.nomPiece.toLowerCase().includes(filterText)); }
+  constructor(private PiecesService : PiecesService){}
+  
+  rechercherPiece(){
+    this.PiecesService.rechercherParNom(this.nompiece).subscribe(pth => {
+      this.pieces = this.allpieces; 
+    console.log(pth)
+  });
+    }
+
+    
+    
   
 }
 

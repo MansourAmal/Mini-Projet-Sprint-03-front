@@ -18,17 +18,19 @@ export class RecherchePargenreComponent  implements OnInit{
   constructor(private PiecesService : PiecesService) { }
 
   ngOnInit(): void {
-    this.genres = this.PiecesService.listegenre();
-    }
-  
+    this.PiecesService.listegenre().subscribe(Gen =>{
+      this.genres=Gen;
+      console.log(Gen);
+    });
+    } 
+   
     onChange() {
-      console.log('Selected Type ID:', this.Idgenre);
+      this.PiecesService.rechercherPargenre(this.Idgenre).subscribe(pth =>{
+        this.pieces=pth
+      });
     
-      //Call the service to filter pieces based on the selected Type
-      this.pieces = this.PiecesService.rechercherPargenre(this.Idgenre);
-    
-      //Debugging statement
-      console.log('Filtered pieces:', this.pieces);
     }
+    
+      
     
 }

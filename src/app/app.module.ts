@@ -12,6 +12,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { RecherchePargenreComponent } from './recherche-pargenre/recherche-pargenre.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -31,9 +31,9 @@
         </div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>genre</label>
-            <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updatedCatId">
-                <option *ngFor="let cat of genre" [value]="cat.idCat">
-                    {{cat.nomCat}}
+            <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updatedGenId">
+                <option *ngFor="let cat of genre" [value]="cat.idG">
+                    {{cat.nomG}}
                 </option>
             </select>
         </div>

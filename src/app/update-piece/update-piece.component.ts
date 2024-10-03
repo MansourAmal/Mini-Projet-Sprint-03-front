@@ -13,24 +13,28 @@ import { genre } from '../model/genre.model';
 export class UpdatePieceComponent implements OnInit{
   currentpiece=new pieces();
   genre! : genre[];
-  updatedCatId! : number;
+  updatedGenId! : number;
   constructor(private activatedRoute: ActivatedRoute,
     private pieceService : PiecesService,
     private router:Router
     ) {}
     
     ngOnInit() {
-      this.pieceService.listegenre();
-      const id = +this.activatedRoute.snapshot.params['id']; // Convertit l'ID en nombre
-      this.currentpiece = this.pieceService.consulterPiece(id);
-      this.updatedCatId=this.currentpiece.genre.idCat;
+      this.pieceService.listegenre().subscribe(Gen =>{
+        this.genre=Gen;
+        console.log(Gen);
+      });
+      this.pieceService.consulterPiece(this.activatedRoute.snapshot.params['id']).subscribe(pth=>{this.currentpiece=pth;});
+      this.updatedGenId=this.currentpiece.genre.idG;
+
     }
-    
+
     updatePiece() {
-      this.currentpiece.genre=this.pieceService.consultergenre(this.updatedCatId);
-      this.pieceService.updatepiece(this.currentpiece);
-      this.router.navigate(['/pieces']); // Redirige vers la liste des pièces après la mise à jour.
-    }
-    
+      this.currentpiece.genre=this.genre.find(Gen => Gen.idG==this.updatedGenId)!;
+      this.pieceService.updatepiece(this.currentpiece).subscribe(pth =>{
+        this.router.navigate(['/pieces']);
+      });
+      
+    } 
 
 }

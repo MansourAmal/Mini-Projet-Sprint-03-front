@@ -3,7 +3,7 @@
         <h2>Ajouter une pieces Theatrales :</h2>
     </div>
     <form>
-        <div class="col-sm-2 col-md-2 col-lg-2">
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
             <label>ID piece</label>
             <input type="text" [(ngModel)]="newpiece.idPiece" name="idPiece" class="form-control">
         </div>
@@ -22,8 +22,8 @@
         <div class="col-sm-4 col-md-4 col-lg-4">
             <label>genre</label>
             <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="newIdCat">
-                <option *ngFor="let cat of genre" [value]="cat.idCat">
-                    {{cat.nomCat}}
+                <option *ngFor="let cat of genre" [value]="cat.idG">
+                    {{cat.nomG}}
                 </option>
             </select>
         </div>

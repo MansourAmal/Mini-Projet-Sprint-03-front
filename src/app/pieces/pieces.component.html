@@ -12,12 +12,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let piece of piecesTheatrales">
+                    <tr *ngFor="let piece of pieces">
                         <td>{{ piece.idPiece }}</td>
                         <td>{{ piece.nomPiece }}</td>
                         <td>{{ piece.auteurPiece }}</td>
                         <td>{{ piece.dateCreation | date:'dd/MM/yyyy' }}</td>
-                        <td>{{ piece.genre.nomCat}}</td>
+                        <td>{{ piece.genre.nomG}}</td>
                         <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerPiece(piece)">Supprimer</a></td>
                         <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updatePiece',piece.idPiece]">Modifier</a></td>
                       

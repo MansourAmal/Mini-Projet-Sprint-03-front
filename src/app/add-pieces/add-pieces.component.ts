@@ -18,18 +18,20 @@ export class AddPiecesComponent implements OnInit{
               private router :Router,
               private piecesService:PiecesService){}
   addpiece(){
-    //console.log(this.newpiece);
-    this.newgenre=
-    this.piecesService.consultergenre(this.newIdCat);
-    this.newpiece.genre=this.newgenre;
-    this.piecesService.ajouterPiece(this.newpiece);
-    this.router.navigate(['pieces']);
-
+    this.newpiece.genre=this.genre.find(Gen => Gen.idG== this.newIdCat)!;
+    this.piecesService.ajouterPiece(this.newpiece).subscribe(pth =>{
+      console.log(pth);
+      this.router.navigate(['pieces']);
+    });
   }
-  ngOnInit(): void {
-    this.genre=this.piecesService.listegenre();
       
-  }
+  ngOnInit(): void {
+    this.piecesService.listegenre().subscribe(Gen =>{
+      this.genre = Gen;
+      console.log(Gen);
+    });
+      
+  }   
   
 }
 

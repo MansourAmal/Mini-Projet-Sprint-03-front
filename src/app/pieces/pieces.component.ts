@@ -8,22 +8,34 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./pieces.component.css']
 })
 export class PiecesComponent implements OnInit{
-  piecesTheatrales: pieces[];
+  pieces!: pieces[];
   constructor(private  piecesService : PiecesService,
               public authService: AuthService) {
-    this.piecesTheatrales = piecesService.listePieces();
+    //this.piecesTheatrales = piecesService.listePieces();
       
     }
   ngOnInit(): void {
-      
+    this.chargerPiece();    
   } 
+
+  chargerPiece(){
+    this.piecesService.listePieces().subscribe(pth => {
+      console.log(pth);
+      this.pieces = pth;
+      });
+  }
+
   supprimerPiece(p: pieces)
   {
     //console.log(p);
     let conf=confirm("etes-vous sur ?");
     if(conf){
-      this.piecesService.supprimerpiece(p);
+      this.piecesService.supprimerpiece(p.idPiece).subscribe(()=>{
+        console.log("piece supprimé");
+        this.chargerPiece();
+      });
     }
    
   }
+
 }
