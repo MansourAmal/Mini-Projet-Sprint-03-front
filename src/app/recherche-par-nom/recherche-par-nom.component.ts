@@ -1,38 +1,39 @@
-import { PiecesService } from './../services/pieces.service';
-import { pieces } from './../model/piece-model';
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Pieceth } from '../model/Pieceth'; // Remplacer Produit par Pieceth
+import { PiecethService } from '../services/pieces.service'; // Remplacer ProduitService par PiecethService
 
 @Component({
-  selector: 'app-recherche-par-nom',
-  templateUrl: './recherche-par-nom.component.html',
-  styleUrls: []
+  selector: 'app-recherche-par-nom-pieceth', // Renommer le sélecteur
+  templateUrl: './recherche-par-nom.component.html', // Remplacer le template correspondant
+  styles: []
 })
-export class RechercheParNomComponent {
-  pieces:pieces[]=[];
-  allpieces:pieces[]=[];
-  nompiece!:String;
-  searchTerm!:string;
+export class RechercheParNomPiecethComponent implements OnInit {
+
+  nomPieceth!: string; // Remplacer nomProduit par nomPieceth
+  pieces!: Pieceth[]; // Remplacer produits par pieces
+  allPieces!: Pieceth[]; // Remplacer allProduits par allPieces
+  searchTerm!: string;
+  
+  constructor(private piecethService: PiecethService) { } // Remplacer ProduitService par PiecethService
+
   ngOnInit(): void {
-    this.PiecesService.listePieces().subscribe(pth =>{
-      this.pieces = pth;
-      this.allpieces = pth;
+    this.piecethService.listePieceth().subscribe(pieces => { // Remplacer listeProduit par listePieceth
+      console.log(pieces);
+      this.pieces = pieces; // Remplacer produits par pieces
+      this.allPieces = pieces; // Initialiser allPieces
     });
-   
   }
-  constructor(private PiecesService : PiecesService){}
-  
-  rechercherPiece(){
-    this.PiecesService.rechercherParNom(this.nompiece).subscribe(pth => {
-      this.pieces = this.allpieces; 
-    console.log(pth)
-  });
-    }
 
-    
-    
-  
+  rechercherPieces() {
+    this.piecethService.rechercherParNom(this.nomPieceth).subscribe(pieces => { // Remplacer rechercherParNomProduit par rechercherParNomPieceth
+      console.log(pieces);
+      this.pieces = pieces; // Remplacer produits par pieces
+    });
+  }
+
+  onKeyUp(filterText: string) {
+    this.pieces = this.allPieces.filter(item => // Remplacer produits par pieces
+      item.nomPieceth.toLowerCase().includes(filterText) // Remplacer nomProduit par nomPieceth
+    );
+  }
 }
-
-
-

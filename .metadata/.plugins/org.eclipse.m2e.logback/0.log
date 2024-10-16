@@ -1,0 +1,20 @@
+2024-10-03 19:48:50,799 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-03 20:08:41,882 [Worker-13: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.amal:examen:0.0.1-SNAPSHOT @ C:\Users\MSI\OneDrive\Documents\amal\dsi23\semester2\jee1\mini projet\examen\pom.xml.
+2024-10-03 20:08:41,882 [Worker-15: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.amal:examen:0.0.1-SNAPSHOT @ C:\Users\MSI\OneDrive\Documents\amal\dsi23\semester2\jee1\mini projet\examen\pom.xml.
+2024-10-03 20:08:44,672 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-03 20:08:44,689 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-03 20:08:44,827 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Recompiling the module because of [1madded or removed source files[m.
+2024-10-03 20:08:44,837 [Worker-13: Building] INFO  o.c.p.compiler.javac.JavacCompiler - Compiling 6 source files with javac [debug parameters release 17] to target\classes
+2024-10-03 20:08:45,951 [Worker-13: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\MSI\OneDrive\Documents\amal\dsi23\semester2\jee1\mini projet\examen\src\test\resources
+2024-10-03 20:08:46,579 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-03 20:08:46,581 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-03 20:08:46,597 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Nothing to compile - all classes are up to date.
+2024-10-03 20:08:46,601 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\MSI\OneDrive\Documents\amal\dsi23\semester2\jee1\mini projet\examen\src\test\resources
+2024-10-03 20:08:47,524 [Worker-15: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.amal:theatre:0.0.1-SNAPSHOT @ C:\Users\MSI\OneDrive\Documents\amal\dsi23\semester2\jee1\mini projet\theatre\pom.xml.
+2024-10-03 20:08:48,547 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-03 20:08:48,567 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2024-10-03 20:08:48,573 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\MSI\OneDrive\Documents\amal\dsi23\semester2\jee1\mini projet\theatre\src\test\resources
+2024-10-03 20:08:49,444 [Worker-15: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.amal:examen:0.0.1-SNAPSHOT @ C:\Users\MSI\OneDrive\Documents\amal\dsi23\semester2\jee1\mini projet\examen\pom.xml.
+2024-10-03 20:08:50,069 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-10-03 20:08:50,071 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2024-10-03 20:08:50,077 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\MSI\OneDrive\Documents\amal\dsi23\semester2\jee1\mini projet\theatre\src\test\resources

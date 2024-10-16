@@ -1,8 +1,8 @@
 <div class="container">
     <div class="col-sm-4 col-md-4 col-lg-4 mb-4"> 
         <label>Genre</label> 
-        <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="Idgenre" (change)="onChange()">
-            <option *ngFor="let cat of genres" [value]="cat.idG">{{ cat.nomG }}</option>
+        <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="IdGenre" (change)="onChange()">
+            <option *ngFor="let cat of genres" [value]="cat.idGen">{{ cat.nomGen }}</option>
         </select> 
     </div>
 
@@ -20,11 +20,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let piece of pieces">
-                        <td>{{ piece.idPiece }}</td>
-                        <td>{{ piece.nomPiece }}</td>
-                        <td>{{ piece.auteurPiece }}</td>
+                        <td>{{ piece.idPieceth }}</td>
+                        <td>{{ piece.nomPieceth }}</td>
+                        <td>{{ piece.auteurPieceth }}</td>
                         <td>{{ piece.dateCreation | date:'dd/MM/yyyy' }}</td>
-                        <td>{{ piece.genre.nomG }}</td>
+                        <td>{{ piece.genre.nomGen }}</td>
                     </tr>
                 </tbody>
             </table>

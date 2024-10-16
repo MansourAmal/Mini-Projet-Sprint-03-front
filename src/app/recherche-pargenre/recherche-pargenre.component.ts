@@ -1,36 +1,32 @@
-
-import { PiecesService } from './../services/pieces.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { pieces } from '../model/piece-model';
-import { genre } from '../model/genre.model';
+import { Genre } from '../model/Genre'; // Remplacer Categorie par Genre
+import { Pieceth } from '../model/Pieceth'; // Remplacer Produit par Pieceth
+import { PiecethService } from '../services/pieces.service'; // Remplacer ProduitService par PiecethService
 
 @Component({
-  selector: 'app-recherche-pargenre',
-  templateUrl: './recherche-pargenre.component.html',
-  styleUrls: []
+  selector: 'app-recherche-par-genre', // Renommer le sélecteur
+  templateUrl: './recherche-pargenre.component.html', // Mettre à jour le template correspondant
+  styles: []
 })
-export class RecherchePargenreComponent  implements OnInit{
-  pieces!: pieces[];;
-  Idgenre! : number;
-  genres! : genre[];
+export class RechercheParGenreComponent implements OnInit {
+  IdGenre! : number; // Remplacer IdCategorie par IdGenre
+  genres! : Genre[]; // Remplacer categories par genres
+  pieces! : Pieceth[]; // Remplacer produits par pieces
 
-  constructor(private PiecesService : PiecesService) { }
+  constructor(private piecethService: PiecethService) { } // Remplacer ProduitService par PiecethService
 
   ngOnInit(): void {
-    this.PiecesService.listegenre().subscribe(Gen =>{
-      this.genres=Gen;
-      console.log(Gen);
+    this.piecethService.listeGenres(). // Remplacer listeCategories par listeGenres
+      subscribe(genres => {
+        this.genres = genres; 
+        console.log(genres);
     });
-    } 
-   
-    onChange() {
-      this.PiecesService.rechercherPargenre(this.Idgenre).subscribe(pth =>{
-        this.pieces=pth
-      });
-    
-    }
-    
-      
-    
+  }
+
+  onChange() {
+    this.piecethService.rechercherParGenre(this.IdGenre). // Remplacer rechercherParCategorie par rechercherParGenre
+      subscribe(pieces => {
+        this.pieces = pieces; // Remplacer produits par pieces
+    });
+  }
 }

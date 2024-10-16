@@ -3,46 +3,44 @@
         <h2>Modifier une pièce :</h2>
     </div>
     <form>
-        <div class="row">
-            <div class="col-sm-2 col-md-2 col-lg-2">
-                <div class="col-sm-2 col-md-2 col-lg-2">
+        <div >
+            <div  class="col-sm-2 col-md-2 col-lg-2">
+                <div class="form-group">
                     <label>ID Pièce</label>
-                    <input type="text" [(ngModel)]="currentpiece.idPiece" name="idPiece" class="form-control" readonly>
+                    <input type="text" [(ngModel)]="currentPieceth.idPieceth" name="idPiece" class="form-control" readonly>
                 </div>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <div class="form-group">
                     <label for="nomPiece">Nom pièce</label>
-                    <input type="text" [(ngModel)]="currentpiece.nomPiece" name="nomPiece" class="form-control">
+                    <input type="text" [(ngModel)]="currentPieceth.nomPieceth" name="nomPiece" class="form-control">
                 </div>
             </div>
             <div class="col-sm-2 col-md-2 col-lg-2">
                 <div class="form-group">
                     <label for="auteurPiece">Auteur</label>
-                    <input type="text" [(ngModel)]="currentpiece.auteurPiece" name="auteurPiece" class="form-control">
+                    <input type="text" [(ngModel)]="currentPieceth.auteurPieceth" name="auteurPiece" class="form-control">
                 </div>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <div class="form-group">
                     <label for="dateCreation">Date de création</label>
-                    <input type="date" [(ngModel)]="currentpiece.dateCreation" name="dateCreation" class="form-control">
+                    <input type="date" [(ngModel)]="currentPieceth.dateCreation" name="dateCreation" class="form-control">
                 </div>
             </div>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <label>genre</label>
-            <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updatedGenId">
-                <option *ngFor="let cat of genre" [value]="cat.idG">
-                    {{cat.nomG}}
-                </option>
-            </select>
-        </div>
-        <div class="mt-2">
-            <button type="button" (click)="updatePiece()" class="btn btn-success">Modifier</button>
-            
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="form-group">
+                    <label>Genre</label>
+                    <select class="form-control" id="idCat" name="idCat" [(ngModel)]="updatedGenId">
+                        <option *ngFor="let cat of genres" [value]="cat.idGen">
+                            {{cat.nomGen}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-2">
+                <button type="button" (click)="updatePieceth()" class="btn btn-success">Modifier</button>
+            </div>
         </div>
     </form>
 </div>
-
-  
-
