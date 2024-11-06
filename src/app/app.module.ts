@@ -12,9 +12,10 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { RechercheParGenreComponent } from './recherche-pargenre/recherche-pargenre.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { RechercheParNomPiecethComponent } from './recherche-par-nom/recherche-par-nom.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ListeGenresComponent } from './liste-genres/liste-genres.component';
 import { UpdateGenreComponent } from './update-genre/update-genre.component';
+import { TokenInterceptor } from './services/token.interceptor';
 
 
 @NgModule({
@@ -40,7 +41,9 @@ import { UpdateGenreComponent } from './update-genre/update-genre.component';
     HttpClientModule,
    
   ],
-  providers: [],
+  providers: [{ provide : HTTP_INTERCEPTORS, 
+    useClass : TokenInterceptor, 
+    multi : true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

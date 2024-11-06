@@ -3,6 +3,7 @@ import { Pieceth } from './../model/Pieceth';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from './auth.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,7 +18,7 @@ export class PiecethService { // Renommé pour correspondre à Pieceth
 
   pieceths!: Pieceth[]; // un tableau de pièces de théâtre
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private authService : AuthService) {
    /*this.pieceths = [
       { idPiece: 1, nomPiece: "Hamlet", auteurPiece: "Shakespeare", dateCreation: new Date("01/14/1600"), Genre: { idG: 1, nomG: "Tragédie" } },
       { idPiece: 2, nomPiece: "Le Malade Imaginaire", auteurPiece: "Molière", dateCreation: new Date("12/17/1673"), genre: { idG: 2, nomG: "Comédie" } }
@@ -26,25 +27,44 @@ export class PiecethService { // Renommé pour correspondre à Pieceth
 
   // Liste toutes les pièces de théâtre
   listePieceth(): Observable<Pieceth[]> {
-    return this.http.get<Pieceth[]>(this.apiURL);
+    let jwt = this.authService.getToken(); 
+    jwt = "Bearer "+jwt; 
+    let httpHeaders = new HttpHeaders({"Authorization":jwt})
+    return this.http.get<Pieceth[]>(this.apiURL+"/all",{headers:httpHeaders});
   }
+  
 
   // Ajouter une pièce de théâtre
   ajouterPieceth(pieceth: Pieceth): Observable<Pieceth> {
-    return this.http.post<Pieceth>(this.apiURL, pieceth, httpOptions);
+    let jwt = this.authService.getToken(); 
+    jwt = "Bearer "+jwt; 
+    let httpHeaders = new HttpHeaders({"Authorization":jwt})
+    return this.http.post<Pieceth>(this.apiURL+"/addprod", pieceth,  {headers:httpHeaders});
   }
+
+  
 
   // Supprimer une pièce de théâtre par ID
   supprimerPieceth(id: number) {
-    const url = `${this.apiURL}/${id}`;
-    return this.http.delete(url, httpOptions);
+    const url = `${this.apiURL}/delprod/${id}`; 
+     let jwt = this.authService.getToken(); 
+     jwt = "Bearer "+jwt; 
+     let httpHeaders = new HttpHeaders({"Authorization":jwt})  
+       return this.http.delete(url,  {headers:httpHeaders});
   }
+
+  
 
   // Consulter une pièce de théâtre par ID
   consulterPieceth(id: number): Observable<Pieceth> {
-    const url = `${this.apiURL}/${id}`;
-    return this.http.get<Pieceth>(url);
+    const url = `${this.apiURL}/getbyid/${id}`; 
+    let jwt = this.authService.getToken(); 
+    jwt = "Bearer "+jwt; 
+    let httpHeaders = new HttpHeaders({"Authorization":jwt})
+    return this.http.get<Pieceth>(url,{headers:httpHeaders});
   }
+
+
 
   // Trier les pièces de théâtre par ID
   trierPieceths() {
@@ -61,28 +81,43 @@ export class PiecethService { // Renommé pour correspondre à Pieceth
 
   // Mettre à jour une pièce de théâtre
   updatePieceth(pieceth: Pieceth): Observable<Pieceth> {
-    return this.http.put<Pieceth>(this.apiURL, pieceth, httpOptions);
+    let jwt = this.authService.getToken(); 
+    jwt = "Bearer "+jwt; 
+    let httpHeaders = new HttpHeaders({"Authorization":jwt})
+    return this.http.put<Pieceth>(this.apiURL+"/updateprod", pieceth,{headers:httpHeaders});
   }
 
   // Liste des genres
   listeGenres(): Observable<Genre[]> {
-    return this.http.get<Genre[]>(this.apiURLGenre);
+    let jwt = this.authService.getToken(); 
+    jwt = "Bearer "+jwt; 
+    let httpHeaders = new HttpHeaders({"Authorization":jwt})
+    return this.http.get<Genre[]>(this.apiURLGenre,{headers:httpHeaders});
   }
+
+  
 
   // Rechercher des pièces par genre
   rechercherParGenre(idGenre: number): Observable<Pieceth[]> {
+    let jwt = this.authService.getToken(); 
+    jwt = "Bearer "+jwt; 
+    let httpHeaders = new HttpHeaders({"Authorization":jwt})
     const url = `${this.apiURL}/gen/${idGenre}`;
-    return this.http.get<Pieceth[]>(url);
-  }
+    return this.http.get<Pieceth[]>(url,{headers:httpHeaders});
+  } 
+  
 
   // Rechercher des pièces par nom
   rechercherParNom(nom: string): Observable<Pieceth[]> {
     const url = `${this.apiURL}/piecethsByName/${nom}`;
     return this.http.get<Pieceth[]>(url);
   }
-
+ 
   // Ajouter un genre
   ajouterGenre(genre: Genre): Observable<Genre> {
-    return this.http.post<Genre>(this.apiURLGenre, genre, httpOptions);
+    let jwt = this.authService.getToken(); 
+    jwt = "Bearer "+jwt; 
+    let httpHeaders = new HttpHeaders({"Authorization":jwt})
+    return this.http.post<Genre>(this.apiURLGenre, genre,{headers:httpHeaders});
   }
 }
