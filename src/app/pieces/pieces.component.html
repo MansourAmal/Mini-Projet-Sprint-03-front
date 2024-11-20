@@ -1,28 +1,53 @@
 <div class="container">
-    <div class="card shadow mb-4">
-        <div class="card-body">
-            <table class="table  table-hover">
-                <thead class="table table-warning">
-                    <tr>
-                    <th>Id</th>
-                    <th>Nom</th>
-                    <th>Auteur</th>
-                    <th>Date de Création</th>
-                    <th>genre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let piece of pieces">
-                        <td>{{ piece.idPieceth }}</td>
-                        <td>{{ piece.nomPieceth }}</td>
-                        <td>{{ piece.auteurPieceth }}</td>
-                        <td>{{ piece.dateCreation | date:'dd/MM/yyyy' }}</td>
-                        <td>{{ piece.genre.nomGen}}</td>
-                        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerPieceth(piece)">Supprimer</a></td>
-                        <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updatePiece',piece.idPieceth]">Modifier</a></td>
-                      
-
-                    </tr>
-                </tbody>
-            </table>
-  
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead class="table table-warning">
+          <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Auteur</th>
+            <th>Date de Création</th>
+            <th>genre</th>
+            <th>Image</th>
+            <th>Supprimer</th>
+            <th>Modifier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let piece of pieces">
+            <td>{{ piece.idPieceth }}</td>
+            <td>{{ piece.nomPieceth }}</td>
+            <td>{{ piece.auteurPieceth }}</td>
+            <td>{{ piece.dateCreation | date: "dd/MM/yyyy" }}</td>
+            <td>{{ piece.genre.nomGen }}</td>
+            <td>
+                <img
+                  class="card-img-top img-responsive"
+                  src="{{apiurl+'/image/loadfromFS/'+piece.idPieceth}}"
+                  style="height: 50px; width: 100px"
+                />
+              </td>
+            <td>
+              <a
+                *ngIf="authService.isAdmin()"
+                class="btn btn-danger"
+                (click)="supprimerPieceth(piece)"
+                >Supprimer</a
+              >
+            </td>
+            <td>
+              <a
+                *ngIf="authService.isAdmin()"
+                class="btn btn-success"
+                [routerLink]="['/updatePiece', piece.idPieceth]"
+                >Modifier</a
+              >
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

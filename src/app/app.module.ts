@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PiecesComponent } from './pieces/pieces.component';
@@ -16,6 +16,10 @@ import { HttpClientModule ,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ListeGenresComponent } from './liste-genres/liste-genres.component';
 import { UpdateGenreComponent } from './update-genre/update-genre.component';
 import { TokenInterceptor } from './services/token.interceptor';
+import { RegisterComponent } from './register/register.component';
+import { VerifEmailComponent } from './verif-email/verif-email.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -32,6 +36,8 @@ import { TokenInterceptor } from './services/token.interceptor';
     RechercheParNomPiecethComponent,
     ListeGenresComponent,
     UpdateGenreComponent,
+    RegisterComponent,
+    VerifEmailComponent,
 
   ],
   imports: [
@@ -39,7 +45,9 @@ import { TokenInterceptor } from './services/token.interceptor';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-   
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [{ provide : HTTP_INTERCEPTORS, 
     useClass : TokenInterceptor, 

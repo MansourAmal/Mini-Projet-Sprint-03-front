@@ -2,37 +2,48 @@ import { Component, OnInit } from '@angular/core';
 import { Pieceth } from '../model/Pieceth'; // Remplacer Produit par Pieceth
 import { AuthService } from '../services/auth.service';
 import { PiecethService } from '../services/pieces.service'; // Remplacer ProduitService par PiecethService
-
+import { Image } from '../model/Image';
 @Component({
   selector: 'app-pieces', // Renommer le sélecteur pour Pieceth
-  templateUrl: './pieces.component.html' // Remplacer le template correspondant
+  templateUrl: './pieces.component.html', // Remplacer le template correspondant
 })
 export class PiecesComponent implements OnInit {
-
   pieces?: Pieceth[]; // Remplacer produits par pieces
+  apiurl:string='http://localhost:8082/pieceth/api';
 
-  constructor(private piecethService: PiecethService, // Remplacer ProduitService par PiecethService
-              public authService: AuthService) {
-  }
+  constructor(
+    private piecethService: PiecethService, // Remplacer ProduitService par PiecethService
+    public authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
     this.chargerPieces(); // Appeler la méthode pour charger les pièces de théâtre
   }
 
   // Méthode pour charger la liste des pièces de théâtre
-  chargerPieces() {
+  /*chargerPieces() {
     this.piecethService.listePieceth().subscribe(pieces => { // Remplacer listeProduit par listePieceth
       console.log(pieces);
       this.pieces = pieces; // Remplacer produits par pieces
     });
+  }*/
+
+  chargerPieces() {
+    this.piecethService.listePieceth().subscribe((pieces) => {
+      this.pieces = pieces;
+     
+    });
   }
+
+  
 
   // Méthode pour supprimer une pièce de théâtre
   supprimerPieceth(p: Pieceth) {
-    let conf = confirm("Etes-vous sûr ?");
+    let conf = confirm('Etes-vous sûr ?');
     if (conf) {
-      this.piecethService.supprimerPieceth(p.idPieceth).subscribe(() => { // Remplacer supprimerProduit par supprimerPieceth
-        console.log("pièce supprimée");
+      this.piecethService.supprimerPieceth(p.idPieceth).subscribe(() => {
+        // Remplacer supprimerProduit par supprimerPieceth
+        console.log('pièce supprimée');
         this.chargerPieces(); // Recharger la liste des pièces après suppression
       });
     }

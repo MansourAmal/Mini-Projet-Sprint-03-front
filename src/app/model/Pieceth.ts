@@ -1,4 +1,5 @@
 import { Genre } from "./Genre";
+import { Image } from "./Image";
 
 export class Pieceth {
     idPieceth! : number;
@@ -6,6 +7,10 @@ export class Pieceth {
     auteurPieceth! : string;
     dateCreation! : Date ;
     genre!:Genre;
+    image! : Image
+    imageStr!:string
+
+    images!: Image[];
   }
 
     

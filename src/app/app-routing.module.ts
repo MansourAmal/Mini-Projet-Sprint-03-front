@@ -10,7 +10,8 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { PieceGuard } from './piece.guard';
 import { RechercheParNomPiecethComponent } from './recherche-par-nom/recherche-par-nom.component';
 import { ListeGenresComponent } from './liste-genres/liste-genres.component';
-
+import {RegisterComponent} from './register/register.component';
+import {VerifEmailComponent} from './verif-email/verif-email.component';
 
 
 const routes: Routes = [
@@ -24,10 +25,9 @@ const routes: Routes = [
   {path: "recherche-pargenre", component : RechercheParGenreComponent},
   {path: "rechercheParNom", component :RechercheParNomPiecethComponent},
   {path: "listeGenres", component : ListeGenresComponent},
+  {path:'register',component:RegisterComponent},
+  { path: 'verifEmail', component: VerifEmailComponent },
 
-
-
-  
 ];
 
 @NgModule({
